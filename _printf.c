@@ -9,9 +9,9 @@ int _printf(const char * const format, ...)
 	int len, i;
 	va_list args;
 
-	va_start(args, format);
 	if (format == NULL)
 		return (-1);
+	va_start(args, format);
 	i = 0, len =  0;
 	while (format && format[i] != '\0')
 	{
