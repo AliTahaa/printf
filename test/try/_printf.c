@@ -8,12 +8,10 @@ int _printf(const char * const format, ...)
 {
 	int len, i;
 	va_list args;
-	select_fun all[] = {{'c', printf_char},{'s', printf_string}};
-	
 
-	va_start(args, format);
 	if (format == NULL)
 		return (-1);
+	va_start(args, format);
 	i = 0, len =  0;
 	while (format && format[i] != '\0')
 	{
@@ -22,18 +20,19 @@ int _printf(const char * const format, ...)
 			switch (format[i + 1])
 			{
 			case 'c':
-				all[0].fun(args);
-				i = i + 2;
-				len++;
+				printf_char(&i, &len, args);
 				break;
 			case '%':
-				_putchar('%');
-				i = i + 2;
-				len++;
+				printf_percent(&i, &len, args);
 				break;
 			case 's':
-				len += printf_string(args);
-				i = i + 2;
+				printf_string(&i, &len, args);
+				break;
+			case 'i':
+				printf_int(&i, &len, args);
+				break;
+			case 'd':
+				printf_dec(&i, &len, args);
 				break;
 			default:
 				break;
