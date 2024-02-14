@@ -20,6 +20,7 @@ int main(void)
     printf("Length:[%d, %i]\n", len2, len2);
     _printf("Negative:[%d]\n", -762534);
     printf("Negative:[%d]\n", -762534);
+    _printf("%K\n");
 
    /* _printf("%c%s%s%c\n", 'A', "Hello, World!", "This is the end.", 'Z');
     printf("%c%s%s%c\n", 'A', "Hello, World!", "This is the end.", 'Z');*/

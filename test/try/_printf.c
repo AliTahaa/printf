@@ -35,13 +35,14 @@ int _printf(const char * const format, ...)
 				printf_dec(&i, &len, args);
 				break;
 			default:
+
 				break;
 			}
 			continue;
 		}
-		_putchar(format[i]);
-		i++;
-		len++;
+				_putchar(format[i]);
+				i++;
+				len++;
 	}
 	va_end(args);
 	return (len);
